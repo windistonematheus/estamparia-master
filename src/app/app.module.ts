@@ -16,6 +16,8 @@ import { TShirtsComponent } from './components/t-shirts/t-shirts.component';
 import { BabyLooksComponent } from './components/baby-looks/baby-looks.component';
 import { BabyLookViewComponent } from './components/baby-look-view/baby-look-view.component';
 import { TShirtViewComponent } from './components/t-shirt-view/t-shirt-view.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +34,12 @@ import { TShirtViewComponent } from './components/t-shirt-view/t-shirt-view.comp
     TShirtsComponent,
     BabyLooksComponent,
     BabyLookViewComponent,
-    TShirtViewComponent
+    TShirtViewComponent,
+    ContactComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
