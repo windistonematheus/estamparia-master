@@ -22,7 +22,7 @@ import { TShirtViewComponent } from './components/t-shirt/t-shirt-view/t-shirt-v
 import { AppRoutingModule } from './/app-routing.module';
 import { ContactComponent } from './components/contact/contact.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -52,7 +52,10 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    HttpClientModule    
+    HttpClientModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
