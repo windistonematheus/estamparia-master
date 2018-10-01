@@ -7,6 +7,7 @@ import { BabyLookComponent } from './components/baby-look/baby-look.component';
 import { BudgetComponent } from './components/budget/budget.component';
 import { ProductComponent } from './components/product/product.component';
 import { LoginComponent } from './components/login/login.component';
+import { MugComponent } from './components/mug/mug.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'baby-look', component: BabyLookComponent },
   { path: 'budget', component: BudgetComponent },
   { path: 'produto', component:ProductComponent},
-  { path: 'login', component:LoginComponent}
+  { path: 'login', component:LoginComponent},
+  { path: 'mug', component: MugComponent}
 ];
 
 @NgModule({
