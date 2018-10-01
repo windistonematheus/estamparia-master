@@ -10,13 +10,13 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Adicionar ao carrinho</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
+        <img mat-card-image [src]="card.image" alt="image">
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <!--<div>Card Content Here</div>-->
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

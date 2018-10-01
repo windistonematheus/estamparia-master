@@ -13,18 +13,18 @@ export class MugComponent implements OnInit {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Caneca 1', cols: 1, rows: 1, image: "assets/images/caneca.jpg" },
+          { title: 'Caneca 2', cols: 1, rows: 1, image: "assets/images/caneca.jpg" },
+          { title: 'Caneca 3', cols: 1, rows: 1, image: "assets/images/caneca.jpg" },
+          { title: 'Caneca 4', cols: 1, rows: 1, image: "assets/images/caneca.jpg" }
         ];
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 1 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Caneca 1', cols: 2, rows: 1, image: "assets/images/caneca.jpg" },
+        { title: 'Caneca 2', cols: 1, rows: 1, image: "assets/images/caneca.jpg" },
+        { title: 'Caneca 3', cols: 1, rows: 1, image: "assets/images/caneca.jpg" },
+        { title: 'Caneca 4', cols: 1, rows: 1, image: "assets/images/caneca.jpg" }
       ];
     })
   );
