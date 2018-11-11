@@ -108,3 +108,9 @@ FOREIGN KEY (id_servico)
 REFERENCES estampariamaster.servico (id)
 
 );
+
+
+insert into `categoria`(nome)
+       values(t-shirt),
+             ('mug'),
+             ('babylook');
