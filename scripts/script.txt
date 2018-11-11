@@ -21,8 +21,8 @@ PRIMARY KEY (id)
 CREATE TABLE estampariamaster.servico (
 
 id INT NOT NULL AUTO_INCREMENT,
-descricao VARCHAR(50),
 nome VARCHAR(80),
+descricao VARCHAR(50),
 PRIMARY KEY (id)
 
 );
@@ -114,3 +114,10 @@ insert into `categoria`(nome)
        values(t-shirt),
              ('mug'),
              ('babylook');
+
+insert into `servico`(nome,descricao)
+       values('serigráfia','impressão de tecidos'),
+
+             ('sublimação','impressão de acrílico');
+
+
