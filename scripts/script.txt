@@ -1,0 +1,110 @@
+Create DataBase estampariamaster;
+
+use estampariamaster;
+
+
+CREATE TABLE estampariamaster.pagamento (  
+
+id INT NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (id)
+
+);
+
+CREATE TABLE estampariamaster.categoria (
+  
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(80),
+PRIMARY KEY (id)
+
+);
+
+CREATE TABLE estampariamaster.servico (
+
+id INT NOT NULL AUTO_INCREMENT,
+descricao VARCHAR(50),
+nome VARCHAR(80),
+PRIMARY KEY (id)
+
+);
+
+CREATE TABLE estampariamaster.cliente (
+
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(80),
+email VARCHAR(50) NOT NULL UNIQUE,
+cpf VARCHAR(11) NOT NULL UNIQUE,
+senha VARCHAR(32) NOT NULL,
+cep VARCHAR(8),
+logradouro VARCHAR(60),
+numero VARCHAR(10),
+complemento VARCHAR(60),
+bairro VARCHAR(60),
+cidade VARCHAR(60),
+telefone VARCHAR(9),
+PRIMARY KEY (id)
+
+);
+
+CREATE TABLE estampariamaster.produto (
+  
+id INT NOT NULL AUTO_INCREMENT,
+nome VARCHAR(80),
+id_categoria INT NOT NULL,
+PRIMARY KEY (id),
+INDEX id_categoria_idx (id_categoria ASC),
+CONSTRAINT id_categoria
+FOREIGN KEY (id_categoria)
+REFERENCES estampariamaster.categoria (id)
+
+);
+
+CREATE TABLE estampariamaster.pedido (  
+
+id INT NOT NULL AUTO_INCREMENT,
+id_pagamento INT NOT NULL,
+id_cliente INT NOT NULL,
+PRIMARY KEY (id),
+INDEX id_pagamento_idx (id_pagamento ASC),
+CONSTRAINT id_pagamento
+FOREIGN KEY (id_pagamento)
+REFERENCES estampariamaster.pagamento (id),
+INDEX id_cliente_idx (id_cliente ASC),
+CONSTRAINT id_cliente
+FOREIGN KEY (id_cliente)
+REFERENCES estampariamaster.cliente (id)
+
+);
+
+CREATE TABLE estampariamaster.pedido_produto (
+  
+id INT NOT NULL AUTO_INCREMENT,
+id_produto INT NOT NULL,
+id_pedido INT NOT NULL,
+PRIMARY KEY (id),
+INDEX id_produto_idx (id_produto ASC),
+CONSTRAINT id_produto
+FOREIGN KEY (id_produto)
+REFERENCES estampariamaster.produto (id),
+INDEX id_pedido_idx (id_pedido ASC),
+CONSTRAINT id_pedido_pt
+FOREIGN KEY (id_pedido)
+REFERENCES estampariamaster.pedido (id)
+
+);
+
+CREATE TABLE estampariamaster.servico_pedido (
+
+id INT NOT NULL AUTO_INCREMENT,
+id_pedido INT NOT NULL,
+id_servico INT NOT NULL,
+PRIMARY KEY (id),
+INDEX id_pedido_idx (id_pedido ASC),
+CONSTRAINT id_pedido_sv
+FOREIGN KEY (id_pedido)
+REFERENCES estampariamaster.pedido (id),
+INDEX id_servico_idx (id_servico ASC),
+CONSTRAINT id_servico
+FOREIGN KEY (id_servico)
+REFERENCES estampariamaster.servico (id)
+
+);
