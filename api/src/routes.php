@@ -23,3 +23,10 @@ $app->get('/categorias', function ($request, $response, $args) {
    $categoria = $sth->fetchAll();
    return $this->response->withJson($categoria);
 });
+
+$app->get('/servicos', function ($request, $response, $args) {
+    $sth = $this->db->prepare("SELECT * FROM servico");
+   $sth->execute();
+   $categoria = $sth->fetchAll();
+   return $this->response->withJson($categoria);
+});
