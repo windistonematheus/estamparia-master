@@ -9,6 +9,7 @@ import { ProductComponent } from './components/product/product.component';
 import { TShirtComponent } from './components/t-shirt/t-shirt.component';
 import { MugComponent } from './components/mug/mug.component';
 import { LoginComponent } from './components/login/login.component';
+import { ServiceComponent } from './components/service/service.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'mug', component: MugComponent },
   { path: 'product', component: ProductComponent },
   { path: 't-shirt', component: TShirtComponent },
+  { path: 'service', component: ServiceComponent },
   { path: 'login', component: LoginComponent }
 ];
 
