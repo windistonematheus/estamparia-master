@@ -111,13 +111,13 @@ REFERENCES estampariamaster.servico (id)
 
 
 insert into `categoria`(nome)
-       values(t-shirt),
+       values('t-shirt'),
              ('mug'),
              ('babylook');
 
 insert into `servico`(nome,descricao)
-       values('serigr·fia','impress„o de tecidos'),
+       values('serigrafia','impress√£o de tecidos'),
 
-             ('sublimaÁ„o','impress„o de acrÌlico');
+             ('sublima√ß√£o','impress√£o de acr√≠lico');
 
 
