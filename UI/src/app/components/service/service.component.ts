@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { ServiceService } from './service.service';
+import { Service } from './Service';
 
 @Component({
   selector: 'app-service',
@@ -8,26 +8,25 @@ import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/l
   styleUrls: ['./service.component.css']
 })
 export class ServiceComponent implements OnInit {
-/** Based on the screen size, switch from standard to one column per row */
-cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-  map(({ matches }) => {
-    if (matches) {
-      return [
-        { title: 'Serigrafia', cols: 1, rows: 1, comments: "Impressão de tecidos", image: "assets/images/caneca.jpg" },
-        { title: 'Sublimação', cols: 1, rows: 1, comments: "Impressão de acrílico", image: "assets/images/caneca.jpg" }
-      ];
-    }
+  servicos: Service[];
+  cards;
 
-    return [
-      { title: 'Serigrafia', cols: 2, rows: 1, comments: "Impressão de tecidos", image: "assets/images/caneca.jpg" },
-      { title: 'Serigrafia', cols: 2, rows: 1, comments: "Impressão de acrílico", image: "assets/images/caneca.jpg" }
-    ];
-  })
-);
-
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
+    this.loadServicos();
+    this.cards = this.servicos;
+    this.cards = this.cards.forEach(servico => {servico.cols = 2, servico.rows = 1});
+  }
+
+  loadServicos() {
+    this.servicos = [];
+    
+    this.serviceService.getListServicos().subscribe(data =>{
+      const obj = Object(data);
+    
+      this.servicos = obj;
+    })
   }
 
 }

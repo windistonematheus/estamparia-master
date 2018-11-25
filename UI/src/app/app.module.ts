@@ -19,6 +19,7 @@ import { TShirtComponent } from './components/t-shirt/t-shirt.component';
 import { BabyLookComponent } from './components/baby-look/baby-look.component';
 import { BabyLookViewComponent } from './components/baby-look/baby-look-view/baby-look-view.component';
 import { TShirtViewComponent } from './components/t-shirt/t-shirt-view/t-shirt-view.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { AppRoutingModule } from './/app-routing.module';
 import { ContactComponent } from './components/contact/contact.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -55,7 +56,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     HttpClientModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

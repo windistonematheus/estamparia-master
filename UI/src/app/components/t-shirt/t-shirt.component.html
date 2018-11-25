@@ -1,4 +1,4 @@
-<div class="grid-container">
+<!-- <div class="grid-container">
   <h1 class="mat-h1">T-Shirt</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
@@ -16,9 +16,22 @@
         </mat-card-header>
         <img mat-card-image [src]="card.image" alt="image">
         <mat-card-content class="dashboard-card-content">
-          <!--<div>Card Content Here</div>-->
+          <div>Card Content Here</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
+</div> -->
+
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let categoria of categorias;">
+    <mat-expansion-panel-header>
+     {{categoria.id}}
+    </mat-expansion-panel-header>
+    <mat-list>
+      <!-- <mat-list-item> Nome:  {{cervejaria.nome}} </mat-list-item> -->
+      <mat-list-item> ID: {{categoria.id}} </mat-list-item>
+      <mat-list-item> Nome: {{categoria.nome}} </mat-list-item>
+    </mat-list>
+  </mat-expansion-panel>
+</mat-accordion>
