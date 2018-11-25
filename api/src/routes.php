@@ -61,7 +61,14 @@ $app->get('/servicos', function ($request, $response, $args) {
 });
 
 $app->get('/camisetas', function ($request, $response, $args) {
-    $sth = $this->db->prepare("SELECT * FROM produto INNER JOIN categoria ON (categoria.id = produto.id_categoria) WHERE categoria.nome = 't-shirt' ");
+    $sth = $this->db->prepare("SELECT produto.* FROM produto INNER JOIN categoria ON (categoria.id = produto.id_categoria) WHERE categoria.nome = 't-shirt' ");
+   $sth->execute();
+   $produto = $sth->fetchAll();
+   return $this->response->withJson($produto);
+});
+
+$app->get('/babylook', function ($request, $response, $args) {
+    $sth = $this->db->prepare("SELECT produto.* FROM produto INNER JOIN categoria ON (categoria.id = produto.id_categoria) WHERE categoria.nome = 'babylook' ");
    $sth->execute();
    $produto = $sth->fetchAll();
    return $this->response->withJson($produto);

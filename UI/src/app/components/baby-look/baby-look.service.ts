@@ -4,11 +4,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class TshirtService {
-
+export class BabyLookService {
   constructor(private http: HttpClient) { }
 
-  getListTshirt(){
-    return this.http.get('http://localhost:8080/camisetas');
+  getListBabylook(){
+    return this.http.get('http://localhost:8080/babylook');
   }
 }
