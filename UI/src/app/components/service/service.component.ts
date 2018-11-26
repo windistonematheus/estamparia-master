@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from './service.service';
 import { Service } from './Service';
-
+import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'app-service',
   templateUrl: './service.component.html',
@@ -9,14 +9,11 @@ import { Service } from './Service';
 })
 export class ServiceComponent implements OnInit {
   servicos: Service[];
-  cards;
 
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
     this.loadServicos();
-    this.cards = this.servicos;
-    this.cards = this.cards.forEach(servico => {servico.cols = 2, servico.rows = 1});
   }
 
   loadServicos() {
@@ -26,7 +23,11 @@ export class ServiceComponent implements OnInit {
       const obj = Object(data);
     
       this.servicos = obj;
-    })
+      this.servicos.forEach(servico => {
+        servico.cols = 1;
+        servico.rows = 1;
+      });
+    });
   }
 
 }
