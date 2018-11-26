@@ -1,11 +1,11 @@
-<!--<div class="grid-container">
+<div class="grid-container">
   <h1 class="mat-h1">Serviços</h1>
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-grid-tile *ngFor="let servico of servicos" [colspan]="servico.cols" [rowspan]="servico.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.nome}}
+            {{servico.nome}}
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -15,16 +15,16 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <p>{{card.descricao}}</p>
+          <p>{{servico.descricao}}</p>
         </mat-card-content>
-        <img mat-card-image [src]="card.image" alt="image">
+        <!-- <img mat-card-image [src]="servico.image" alt="Logo Servico"> -->
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>-->
+</div>
 
 
-<mat-card class="example-card" *ngFor="let servico of servicos">
+<!-- <mat-card class="example-card" *ngFor="let servico of servicos">
   <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{servico.nome}}</mat-card-title>
@@ -36,4 +36,4 @@
         {{servico.descricao}}
       </p>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
