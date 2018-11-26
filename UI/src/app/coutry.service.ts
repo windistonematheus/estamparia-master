@@ -11,4 +11,12 @@ export class CoutryService {
   getListCategorias(){
     return this.http.get('http://localhost:8080/categorias');
   }
+
+  getListContatos(){
+    return this.http.get('http://localhost:8080/contatos');
+  }
+
+  getListCadastros(){
+    return this.http.get('http://localhost:8080/cadastros');
+  }
 }

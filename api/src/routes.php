@@ -110,3 +110,58 @@ $app->put('/contato/[{id}]', function ($request, $response, $args) {
     $input['id'] = $args['id'];
     return $this->response->withJson($input);
 });
+
+$app->get('/cadastros', function ($request, $response, $args) {
+    $sth = $this->db->prepare("SELECT * FROM cadastro");
+   $sth->execute();
+   $categoria = $sth->fetchAll();
+   return $this->response->withJson($categoria);
+});
+
+$app->post('/cadastro', function ($request, $response) {
+    $input = $request->getParsedBody();
+    $sql = "INSERT INTO cadastro (nome, email, cpf, senha, cep, logradouro, numero, complemento, bairro, cidade, telefone) VALUES (:nome, :email, :cpf, :senha, :cep, :logradouro, :numero, :complemento, :bairro, :cidade, :telefone)";
+     $sth = $this->db->prepare($sql);
+     $sth->bindParam("nome", $input['nome']);
+     $sth->bindParam("email", $input['email']);
+     $sth->bindParam("cpf", $input['cpf']);
+     $sth->bindParam("senha", $input['senha']);
+     $sth->bindParam("cep", $input['cep']); 
+     $sth->bindParam("logradouro", $input['logradouro']); 
+     $sth->bindParam("numero", $input['numero']); 
+     $sth->bindParam("complemento", $input['complemento']); 
+     $sth->bindParam("bairro", $input['bairro']); 
+     $sth->bindParam("cidade", $input['cidade']); 
+     $sth->bindParam("telefone", $input['telefone']);    
+    $sth->execute();
+    $input['id'] = $this->db->lastInsertId();
+    return $this->response->withJson($input);
+});
+
+$app->delete('/cadastro/[{id}]', function ($request, $response, $args) {
+    $sth = $this->db->prepare("DELETE FROM cadastro WHERE id=:id");
+   $sth->bindParam("id", $args['id']);
+   $sth->execute();
+   $cadastros = $sth->fetchAll();
+   return $this->response->withJson($cadastros);
+});
+
+$app->put('/cadastro/[{id}]', function ($request, $response, $args) {
+    $input = $request->getParsedBody();
+    $sql = "UPDATE cadastro SET nome=:nome, email=:email, cpf=:cpf, cep=:cep, logradouro=:logradouro, numero=:numero, complemento=:complemento, bairro=:bairro, cidade=:cidade, telefone=:telefone WHERE id=:id";
+     $sth = $this->db->prepare($sql);
+    $sth->bindParam("id", $args['id']);
+    $sth->bindParam("nome", $input['nome']);
+    $sth->bindParam("email", $input['email']);
+    $sth->bindParam("cpf", $input['cpf']);
+    $sth->bindParam("cep", $input['cep']);
+    $sth->bindParam("logradouro", $input['logradouro']);
+    $sth->bindParam("numero", $input['numero']);
+    $sth->bindParam("complemento", $input['complemento']);
+    $sth->bindParam("bairro", $input['bairro']);
+    $sth->bindParam("cidade", $input['cidade']);
+    $sth->bindParam("telefone", $input['telefone']);
+    $sth->execute();
+    $input['id'] = $args['id'];
+    return $this->response->withJson($input);
+});
